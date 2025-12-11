@@ -1,2 +1,2 @@
-export { default as Button } from './Button.vue'
-export { default as Input } from './Input.vue'
+export { default as Button } from '@/shared/components/ui/Button.vue'
+export { default as Input } from '@/shared/components/ui/Input.vue'

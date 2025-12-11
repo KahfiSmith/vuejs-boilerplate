@@ -11,4 +11,4 @@ export interface PaginatedQuery {
   search?: string
 }
 
-export * from './api.types'
+export * from '@/shared/types/api.types'

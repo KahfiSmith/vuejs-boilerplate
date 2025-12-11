@@ -12,7 +12,7 @@ export function getDevRoutes(): RouteRecordRaw[] {
         {
           path: '',
           name: 'dev-sandbox',
-          component: () => import('./ComponentSandbox.vue'),
+          component: () => import('@/app/dev/ComponentSandbox.vue'),
           meta: { title: 'Dev Sandbox', hidden: true },
         },
       ],
