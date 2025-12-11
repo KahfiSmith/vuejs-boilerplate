@@ -11,6 +11,9 @@ Boilerplate Vue 3 (Vite + TypeScript) dengan pola feature-first, router terorgan
 │  ├─ app/                    # application shell
 │  │  ├─ App.vue
 │  │  ├─ main.ts
+│  │  ├─ dev/                 # util/sandbox khusus mode dev
+│  │  │  ├─ ComponentSandbox.vue
+│  │  │  └─ devRoutes.ts
 │  │  ├─ layouts/
 │  │  │  ├─ DefaultLayout.vue
 │  │  │  └─ AuthLayout.vue
@@ -55,6 +58,7 @@ Boilerplate Vue 3 (Vite + TypeScript) dengan pola feature-first, router terorgan
 ## Catatan utama
 
 - Router: `routes.ts` mendefinisikan rute, `guards.ts` menangani meta `requiresAuth` dan `guestOnly`, serta update `document.title`.
+- Dev sandbox: rute `/__dev` hanya aktif di `import.meta.env.DEV` untuk coba komponen lewat `ComponentSandbox.vue`.
 - Layout: `DefaultLayout` untuk halaman utama, `AuthLayout` untuk login/register.
 - Shared UI: komponen dasar (`Button`, `Input`) dan komponen umum (`AppHeader`) bisa dipakai lintas fitur.
 - Auth contoh: `features/auth` berisi page, form, store Pinia, dan service API dengan fallback mock.

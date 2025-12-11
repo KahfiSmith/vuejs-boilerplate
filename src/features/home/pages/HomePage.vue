@@ -1,8 +1,8 @@
 <script setup lang="ts">
 import { RouterLink } from 'vue-router'
 
-import BaseButton from '@/components/base/BaseButton.vue'
-import { useCounterStore } from '@/stores/counter'
+import { Button } from '@/shared/components/ui'
+import { useCounterStore } from '@/shared/stores/counter'
 
 const counter = useCounterStore()
 
@@ -23,144 +23,56 @@ const pillars = [
 </script>
 
 <template>
-  <section class="hero">
-    <div class="hero__text">
-      <p class="eyebrow">Vue 3 + Vite + TypeScript</p>
-      <h1>Scalable boilerplate to kickstart new features, fast.</h1>
-      <p class="lede">
-        Opinionated file structure, global styles, routing, and state setup so you can focus on
-        shipping features—not wiring.
+  <section class="grid gap-8 lg:grid-cols-[1.2fr,1fr] lg:items-center">
+    <div class="space-y-5">
+      <p class="text-xs font-semibold uppercase tracking-[0.25em] text-indigo-600">
+        Vue 3 + Vite + TypeScript
       </p>
-      <div class="hero__actions">
+      <h1 class="text-3xl font-semibold leading-tight text-slate-900 sm:text-4xl">
+        Clean, scalable boilerplate to start shipping features faster.
+      </h1>
+      <p class="max-w-2xl text-base text-slate-600">
+        Feature-first folders, ready-to-use routing, global styles, and Pinia state keep everything
+        organized while staying minimal. Extend with your own features and components.
+      </p>
+      <div class="flex flex-wrap gap-3">
         <RouterLink to="/">
-          <BaseButton>View routes</BaseButton>
+          <Button>View routes</Button>
         </RouterLink>
-        <BaseButton variant="secondary" as="a" href="https://router.vuejs.org/" target="_blank">
+        <Button variant="secondary" as="a" href="https://router.vuejs.org/" target="_blank">
           Router docs
-        </BaseButton>
+        </Button>
       </div>
     </div>
-    <div class="hero__card">
-      <header class="card__header">
-        <p class="muted">Example store usage</p>
-        <span class="pill">Pinia</span>
+
+    <div
+      class="rounded-2xl border border-slate-200 bg-white p-5 shadow-xl shadow-indigo-100/60 sm:p-6"
+    >
+      <header class="flex items-center justify-between">
+        <p class="text-sm font-semibold text-slate-500">Example store usage</p>
+        <span class="rounded-full bg-indigo-50 px-3 py-1 text-xs font-semibold text-indigo-600">
+          Pinia
+        </span>
       </header>
-      <p class="count">{{ counter.count }}</p>
-      <p class="muted">Double: {{ counter.doubleCount }}</p>
-      <div class="card__actions">
-        <BaseButton variant="ghost" @click="counter.increment">Increment</BaseButton>
-        <BaseButton variant="secondary" @click="counter.reset()">Reset</BaseButton>
+      <div class="mt-4 space-y-1">
+        <p class="text-4xl font-bold text-slate-900">{{ counter.count }}</p>
+        <p class="text-sm text-slate-500">Double: {{ counter.doubleCount }}</p>
+      </div>
+      <div class="mt-6 flex flex-wrap gap-3">
+        <Button variant="ghost" @click="counter.increment">Increment</Button>
+        <Button variant="secondary" @click="counter.reset()">Reset</Button>
       </div>
     </div>
   </section>
 
-  <section class="pillars">
-    <article v-for="pillar in pillars" :key="pillar.title" class="pillar">
-      <h3>{{ pillar.title }}</h3>
-      <p>{{ pillar.description }}</p>
+  <section class="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+    <article
+      v-for="pillar in pillars"
+      :key="pillar.title"
+      class="rounded-xl border border-slate-200 bg-white p-5 shadow-sm transition hover:-translate-y-0.5 hover:shadow-lg"
+    >
+      <h3 class="text-lg font-semibold text-slate-900">{{ pillar.title }}</h3>
+      <p class="mt-2 text-sm text-slate-600">{{ pillar.description }}</p>
     </article>
   </section>
 </template>
-
-<style scoped>
-.hero {
-  display: grid;
-  grid-template-columns: 1.2fr 1fr;
-  align-items: center;
-  gap: 28px;
-  margin-top: 28px;
-}
-
-.hero__text h1 {
-  font-size: clamp(2rem, 4vw, 2.8rem);
-  margin: 0.35rem 0 0.75rem;
-}
-
-.eyebrow {
-  text-transform: uppercase;
-  font-weight: 700;
-  letter-spacing: 0.08em;
-  color: #a855f7;
-  margin: 0;
-}
-
-.hero__text .lede {
-  margin: 0 0 1.25rem;
-  color: #cbd5e1;
-  max-width: 540px;
-}
-
-.hero__actions {
-  display: flex;
-  gap: 0.75rem;
-  flex-wrap: wrap;
-}
-
-.hero__card {
-  background: linear-gradient(160deg, rgba(99, 102, 241, 0.08), rgba(14, 165, 233, 0.08));
-  border: 1px solid rgba(148, 163, 184, 0.2);
-  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.35);
-  padding: 20px;
-  border-radius: 16px;
-}
-
-.card__header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.muted {
-  color: #94a3b8;
-}
-
-.pill {
-  background: rgba(15, 23, 42, 0.8);
-  color: #e5e7eb;
-  padding: 6px 12px;
-  border-radius: 999px;
-  font-size: 0.85rem;
-  border: 1px solid rgba(148, 163, 184, 0.25);
-}
-
-.count {
-  font-size: 2.4rem;
-  font-weight: 800;
-  margin: 12px 0 4px;
-}
-
-.card__actions {
-  display: flex;
-  gap: 0.5rem;
-  margin-top: 12px;
-}
-
-.pillars {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
-  gap: 14px;
-  margin-top: 36px;
-}
-
-.pillar {
-  padding: 18px;
-  border-radius: 14px;
-  border: 1px solid rgba(148, 163, 184, 0.18);
-  background: rgba(15, 23, 42, 0.55);
-}
-
-.pillar h3 {
-  margin: 0 0 0.35rem;
-}
-
-.pillar p {
-  margin: 0;
-  color: #cbd5e1;
-}
-
-@media (max-width: 900px) {
-  .hero {
-    grid-template-columns: 1fr;
-  }
-}
-</style>
