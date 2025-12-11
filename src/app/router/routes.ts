@@ -1,6 +1,8 @@
 import type { RouteRecordRaw } from 'vue-router'
 
-export const routes: RouteRecordRaw[] = [
+import { getDevRoutes } from '@/app/dev/devRoutes'
+
+const baseRoutes: RouteRecordRaw[] = [
   {
     path: '/',
     component: () => import('@/app/layouts/DefaultLayout.vue'),
@@ -32,3 +34,5 @@ export const routes: RouteRecordRaw[] = [
     meta: { title: 'Page Not Found' },
   },
 ]
+
+export const routes: RouteRecordRaw[] = [...baseRoutes, ...getDevRoutes()]
