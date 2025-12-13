@@ -1,7 +1,5 @@
 import type { RouteRecordRaw } from 'vue-router'
 
-import { getDevRoutes } from '@/app/dev/devRoutes'
-
 const baseRoutes: RouteRecordRaw[] = [
   {
     path: '/',
@@ -35,4 +33,4 @@ const baseRoutes: RouteRecordRaw[] = [
   },
 ]
 
-export const routes: RouteRecordRaw[] = [...baseRoutes, ...getDevRoutes()]
+export const routes: RouteRecordRaw[] = baseRoutes

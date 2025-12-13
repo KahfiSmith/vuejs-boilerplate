@@ -1,3 +1,4 @@
+@config "../../../tailwind.config.cjs";
 @import 'tailwindcss';
 @import 'tw-animate-css';
 @import '@/app/styles/variables.css';
