@@ -12,8 +12,9 @@
     "preview": "vite preview",
     "build-only": "vite build",
     "type-check": "vue-tsc --build",
-    "lint": "eslint . --fix --cache",
-    "format": "prettier --write src/"
+    "lint": "eslint . --cache",
+    "lint:fix": "eslint . --fix --cache",
+    "format": "prettier --write src/ providers/ docs/"
   },
   "dependencies": {
     "@tailwindcss/vite": "^4.1.17",
