@@ -1,7 +1,9 @@
-@config "../tailwind.config.cjs";
 @import 'tailwindcss';
 @import 'tw-animate-css';
-@import '@/styles/variables.css';
+@import '.variables.css';
+
+@source "../../../index.html";
+@source "../../../src/**/*.{vue,js,ts,jsx,tsx}";
 
 @custom-variant dark (&:is(.dark *));
 
