@@ -1,6 +1,9 @@
-<script setup lang="ts">
-import { RouterLink } from 'vue-router'
+<route lang="yaml">
+meta:
+  title: Page Not Found
+</route>
 
+<script setup lang="ts">
 import { Button } from '@/components/ui'
 </script>
 

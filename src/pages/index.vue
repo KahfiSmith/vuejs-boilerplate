@@ -1,6 +1,10 @@
-<script setup lang="ts">
-import { RouterLink } from 'vue-router'
+<route lang="yaml">
+meta:
+  layout: DefaultLayout
+  title: Home
+</route>
 
+<script setup lang="ts">
 import { Button } from '@/components/ui'
 import { useCounterStore } from '@/stores/counter'
 

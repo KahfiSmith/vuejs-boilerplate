@@ -1,3 +1,10 @@
+<route lang="yaml">
+meta:
+  layout: AuthLayout
+  title: Login
+  guestOnly: true
+</route>
+
 <script setup lang="ts">
 import LoginForm from '@/components/features/auth/LoginForm.vue'
 </script>
